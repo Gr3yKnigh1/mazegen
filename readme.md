@@ -8,14 +8,14 @@ R - Regenerate maze
 # Installation
 
 1. Create environment: 
-```Bat
+```Shell
 python -m virtualenv venv
 ```
 2. Install requirements: 
-```Bat
+```Shell
 python -m pip install -r .\requirements
 ```
 3. Run 
-```Bat
+```Shell
 python .\pg-maze-generator\main.py
 ```
