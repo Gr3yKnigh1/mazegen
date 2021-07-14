@@ -1,11 +1,11 @@
-## Maze Generator
-# Keys:
+# Maze Generator
+## Keys:
 - 'ESCAPE': terminate window
 - 'R': Regenerate maze
-# Installation
+## Installation
 1. Create environment: 
 ```Shell
-python -m virtualenv venv
+python -m virtualenv .\venv
 ```
 2. Install requirements: 
 ```Shell
