@@ -14,4 +14,3 @@ Without python interpreter:
 With python interpreter:
 	1. Enter in virtual environment: "./venv/Scripts/activate" or just install requirements: "python -m pip install -r requirements.txt"
 	2. Run main script: "python main.py"
-
