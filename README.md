@@ -1,4 +1,5 @@
 # Maze Generator
+This is simple maze generator using pygame as render system.
 ## Keys:
 - 'ESCAPE': terminate window
 - 'R': Regenerate maze
