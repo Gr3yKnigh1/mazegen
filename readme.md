@@ -5,12 +5,17 @@
 ESCAPE - terminate window
 R - Regenerate maze
 
-# Instalation
+# Installation
 
-Without python interpreter:
-	1. Go to "dist" folder
-	2. Run "main.exe"
-
-With python interpreter:
-	1. Enter in virtual environment: "./venv/Scripts/activate" or just install requirements: "python -m pip install -r requirements.txt"
-	2. Run main script: "python main.py"
+1. Create environment: 
+```Bat
+python -m virtualenv venv
+```
+2. Install requirements: 
+```Bat
+python -m pip install -r .\requirements
+```
+3. Run 
+```Bat
+python .\pg-maze-generator\main.py
+```
