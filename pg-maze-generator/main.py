@@ -1,18 +1,14 @@
 from __future__ import annotations
 
 import sys
-import random
-import pygame
 
 from app import MazeGenApp
-
-
-WINDOW_SIZE = MAZE_SIZE[0] * CELL_SIZE[0], MAZE_SIZE[1] * CELL_SIZE[1]
+from consts import WINDOW_SIZE
 
 
 def main() -> int:
 	app = MazeGenApp(WINDOW_SIZE)
-	app.mainloop()
+	app.run()
 	return 0
 
 

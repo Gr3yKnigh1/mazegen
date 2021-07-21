@@ -7,15 +7,11 @@ if TYPE_CHECKING:
 import pygame
 
 from direction import Direction, Directions
+from consts import CELL_SIZE, WALL_WIDTH, WALL_COLOR
 
 
 side = tuple[int, int]
 direction = tuple[int, int]
-
-
-CELL_SIZE = 64, 64 # in pixels
-WALL_COLOR = "#B95FD0"
-WALL_WIDTH = 1
 
 
 class Cell(object):

@@ -4,11 +4,7 @@ import sys
 import pygame
 
 from maze import Maze
-
-
-MAZE_SIZE: tuple[int, int] = 10, 10
-BACKGROUND_COLOR: str = "#FCC4C4"
-
+from consts import MAZE_SIZE, BACKGROUND_COLOR
 
 class MazeGenApp(object):
 
@@ -32,6 +28,11 @@ class MazeGenApp(object):
 		self.fps_limit = fps_limit
 
 		self.maze = None
+
+
+	def run(self) -> None:
+		self.on_load()
+		self.mainloop()
 
 
 	def on_load(self) -> None:

@@ -1,11 +1,12 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
+import random
 
 if TYPE_CHECKING:
-	from cell import Cell
 	import pygame
 
 from direction import Directions
+from cell import Cell
 
 
 class Maze(object):
