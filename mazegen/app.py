@@ -1,10 +1,9 @@
 from __future__ import annotations
-
 import sys
 import pygame
-
 from maze import Maze
-from consts import MAZE_SIZE, BACKGROUND_COLOR
+from consts import MAZE_SIZE, BACKGROUND_COLOR, WINDOW_SIZE, FPS_LIMIT
+
 
 class MazeGenApp(object):
 
@@ -16,16 +15,16 @@ class MazeGenApp(object):
 
 	maze: Maze
 
-	def __init__(self, window_size: tuple[int, int], fps_limit: int=60) -> None:
+	def __init__(self) -> None:
 		pygame.init()
 		
-		self.screen_surface = pygame.display.set_mode(window_size)
+		self.screen_surface = pygame.display.set_mode(WINDOW_SIZE)
 		self.clock = pygame.time.Clock()
 		
 		pygame.display.set_caption("Maze Generator [v0.5]")
 		
 		self.is_running = False
-		self.fps_limit = fps_limit
+		self.fps_limit = FPS_LIMIT
 
 		self.maze = None
 
