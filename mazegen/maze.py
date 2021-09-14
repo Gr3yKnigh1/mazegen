@@ -1,7 +1,6 @@
 from __future__ import annotations
 from typing import TYPE_CHECKING
 import random
-
 if TYPE_CHECKING:
 	import pygame
 
@@ -15,7 +14,7 @@ class Maze(object):
 	cells: list[Cell]
 
 	__starting_position: tuple[int, int]
-	
+
 	def __init__(self, size: tuple[int, int]) -> None:
 		self.size = size
 		self.cells = []
@@ -49,7 +48,7 @@ class Maze(object):
 		for cell in self.cells:
 			if (cell.x, cell.y) == (x, y):
 				return cell
-		
+
 
 	def get_cell_direction(self, c1: Cell, c2: Cell) -> tuple[int, int]:
 		neighbours = c1.get_neighbours()
@@ -83,13 +82,13 @@ class Maze(object):
 				visited_stack.append(cell)
 			else:
 				pass
-		
+
 		#--Generate start
 		while len(visited_cells) < self.size[0] * self.size[1]:
 			visit(to_visit)
 			neighbours = to_visit.get_neighbours()
 			not_visited_neighbours = [cell for cell in neighbours if not cell.visited]
-			
+
 			if len(not_visited_neighbours) > 0:
 				next_cell = random.choice(not_visited_neighbours)
 				to_visit.make_transition(next_cell)
