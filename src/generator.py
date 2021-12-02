@@ -1,42 +1,6 @@
 from __future__ import annotations
-import enum
-
-
-class Vector2Int(list):
-
-    def __init__(self, x: int, y: int) -> None:
-        self.extend((x, y))
-
-    @property
-    def x(self) -> int:
-        return self[0]
-
-    @property
-    def y(self) -> int:
-        return self[1]
-
-
-class Direction(enum.Enum):
-    UP = Vector2Int(-1, 0)
-    DOWN = Vector2Int(+1, 0)
-    LEFT = Vector2Int(0, -1)
-    RIGHT = Vector2Int(0, +1)
-
-
-class Cell(object):
-
-    tile_x: int
-    tile_y: int
-    wall_directions: list[Direction | None]
-
-    def __init__(self, tile_x, tile_y, wall_directions=None) -> None:
-        if wall_directions is None:
-            self.wall_directions = [direction for direction in Direction]
-        self.tile_x = tile_x
-        self.tile_y = tile_y
-
-    def __repr__(self) -> str:
-        return f"<Cell [{self.tile_x},{self.tile_y}]>"
+from cell import Cell
+from common.direction import Direction
 
 
 def generate_maze(

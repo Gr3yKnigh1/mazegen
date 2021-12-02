@@ -1,26 +1,9 @@
 from __future__ import annotations
 import pygame
-from generator import Cell
+
 from generator import generate_maze
-
-
-
-def render_cells(
-        surface: pygame.Surface,
-        cells: list[list[Cell]],
-        render_position: tuple[int, int],
-        cell_size: tuple(int, int), interval: tuple[int, int]) -> None:
-
-    for cr in cells:
-        for cc in cr:
-            pygame.draw.rect(
-                surface, (120, 50, 50), pygame.Rect(
-                    render_position[0] + cc.tile_x * (cell_size[0] + interval[0]),
-                    render_position[1] + cc.tile_y * (cell_size[1] + interval[1]),
-                    cell_size[0],
-                    cell_size[1]
-                )
-            )
+from renderer import MazeRendererContext
+from renderer import render_cells
 
 
 def main() -> int:
@@ -32,6 +15,7 @@ def main() -> int:
     clean_color = (50, 50, 50)
 
     cells = generate_maze(10, 10, (0, 0))
+    ctx = MazeRendererContext(screen_surface, (4, 4), (50, 50), (1, 1), 4)
 
     while is_running:
 
@@ -47,9 +31,7 @@ def main() -> int:
                 )
 
         screen_surface.fill(clean_color)
-        render_cells(
-            screen_surface, cells, (4, 4), (50, 50), (4, 4)
-        )
+        render_cells(cells, ctx)
         pygame.display.flip()
 
     pygame.quit()
