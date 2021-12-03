@@ -1,12 +1,20 @@
 # Maze Generator
 
-This is implementation of maze generator algorithm.
+## Usage
 
-## Requirements
+1. Install requirements
 
-- pygame==1.9.*
+```shell
+pip install -r requirements.txt
+```
 
-## Keys
+2. Run
 
-- <R> - Regenerate
-- <ESCAPE> - Exit
+```
+python .\src\main.py
+```
+
+## Keybindings
+
+* `<lctrl> + r` - regenerate
+* `<lctrl> + q` - quit
