@@ -2,7 +2,8 @@ from __future__ import annotations
 import dataclasses
 import pygame
 
-from generator import Cell, Direction
+from cell import Cell
+from common.direction import Direction
 
 
 @dataclasses.dataclass
@@ -34,13 +35,11 @@ def render_cells(cells: list[list[Cell]], ctx: MazeRendererContext) -> None:
 
 
 def render_walls(cell: Cell, ctx: MazeRendererContext) -> None:
-    for direction in Direction:
-        if direction not in cell.wall_directions:
-            continue
-        render_wall(cell, direction, ctx)
+    for wall_direction in cell.wall_directions:
+        render_wall(cell, wall_direction, ctx)
 
 
-def render_wall(cell: Cell, direction: Direction, ctx: MazeRendererContext) -> None:
+def render_wall(cell: Cell, direction: tuple[int, int], ctx: MazeRendererContext) -> None:
     rect = get_cell_rect(cell, ctx)
 
     match direction:
@@ -60,3 +59,20 @@ def render_wall(cell: Cell, direction: Direction, ctx: MazeRendererContext) -> N
     pygame.draw.line(
         ctx.surface, (190, 50, 90), (x1, y1), (x2, y2), ctx.wall_width
     )
+
+
+# def render_path(path: list[tuple[int, int]], ctx: MazeRendererContext, first_cell_pos: tuple[int, int]) -> None:
+#     cell = Cell(
+#         *first_cell_pos
+#     )
+#     for move in path:
+#         rect1 = get_cell_rect(cell, ctx)
+#         next_cell = Cell(
+#             tile_x=cell.tile_x + move[0],
+#             tile_y=cell.tile_y + move[1])
+#         rect2 = get_cell_rect(next_cell, ctx)
+
+#         pygame.draw.line(
+#             ctx.surface, (255, 200, 190), rect1.center, rect2.center
+#         )
+#         cell = next_cell

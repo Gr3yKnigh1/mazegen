@@ -1,9 +1,17 @@
-import enum
-from common.vector import Vector2Int
+directions = (
+    (0, -1),
+    (0, +1),
+    (-1, 0),
+    (+1, 0),
+)
 
 
-class Direction(enum.Enum):
-    UP = Vector2Int(-1, 0)
-    DOWN = Vector2Int(+1, 0)
-    LEFT = Vector2Int(0, -1)
-    RIGHT = Vector2Int(0, +1)
+class Direction:
+    UP = directions[0]
+    DOWN = directions[1]
+    LEFT = directions[2]
+    RIGHT = directions[3]
+
+
+def opposite(direction: tuple[int, int]) -> tuple[int, int]:
+    return -direction[0], -direction[1]

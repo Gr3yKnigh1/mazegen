@@ -14,8 +14,11 @@ def main() -> int:
 
     clean_color = (50, 50, 50)
 
-    cells = generate_maze(10, 10, (0, 0))
-    ctx = MazeRendererContext(screen_surface, (4, 4), (50, 50), (1, 1), 4)
+    maze_size = (10, 10)
+    first_cell_pos = (0, 0)
+
+    cells = generate_maze(*maze_size, first_cell_pos)
+    ctx = MazeRendererContext(screen_surface, (4, 4), (50, 50), (0, 0), 1)
 
     while is_running:
 
@@ -26,9 +29,9 @@ def main() -> int:
             is_running = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_q and keys[pygame.K_LCTRL]:
-                pygame.event.post(
-                    pygame.event.Event(pygame.QUIT)
-                )
+                pygame.event.post(pygame.event.Event(pygame.QUIT))
+            elif event.key == pygame.K_r and keys[pygame.K_LCTRL]:
+                cells = generate_maze(*maze_size, first_cell_pos)
 
         screen_surface.fill(clean_color)
         render_cells(cells, ctx)
