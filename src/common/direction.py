@@ -1,3 +1,4 @@
+from __future__ import annotations
 directions = (
     (0, -1),
     (0, +1),
