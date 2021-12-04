@@ -42,19 +42,18 @@ def render_walls(cell: Cell, ctx: MazeRendererContext) -> None:
 def render_wall(cell: Cell, direction: tuple[int, int], ctx: MazeRendererContext) -> None:
     rect = get_cell_rect(cell, ctx)
 
-    match direction:
-        case Direction.UP:
-            x1, y1 = rect.topleft
-            x2, y2 = rect.topright
-        case Direction.DOWN:
-            x1, y1 = rect.bottomleft
-            x2, y2 = rect.bottomright
-        case Direction.RIGHT:
-            x1, y1 = rect.topright
-            x2, y2 = rect.bottomright
-        case Direction.LEFT:
-            x1, y1 = rect.topleft
-            x2, y2 = rect.bottomleft
+    if direction == Direction.UP:
+        x1, y1 = rect.topleft
+        x2, y2 = rect.topright
+    elif direction == Direction.DOWN:
+        x1, y1 = rect.bottomleft
+        x2, y2 = rect.bottomright
+    elif direction == Direction.RIGHT:
+        x1, y1 = rect.topright
+        x2, y2 = rect.bottomright
+    elif direction == Direction.LEFT:
+        x1, y1 = rect.topleft
+        x2, y2 = rect.bottomleft
 
     pygame.draw.line(
         ctx.surface, (190, 50, 90), (x1, y1), (x2, y2), ctx.wall_width
