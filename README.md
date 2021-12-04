@@ -1,5 +1,9 @@
 # Maze Generator
 
+## Requirements
+
+* `python>=3.8`
+
 ## Usage
 
 1. Install requirements
