@@ -11,7 +11,7 @@ pip install -r requirements.txt
 2. Run
 
 ```
-python .\src\main.py
+python src/main.py
 ```
 
 ## Keybindings
