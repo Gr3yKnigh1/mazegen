@@ -1,4 +1,9 @@
 from __future__ import annotations
+import sys
+
+if sys.version_info < (3, 8):
+    raise SystemError("Run it with 3.8 or higher")
+
 import pygame
 
 from generator import generate_maze
