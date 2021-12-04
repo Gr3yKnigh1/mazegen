@@ -7,7 +7,7 @@ if sys.version_info < (3, 8):
 import pygame
 
 from generator import generate_maze
-from renderer import MazpeRendererContext
+from renderer import MazeRendererContext
 from renderer import render_cells
 
 
