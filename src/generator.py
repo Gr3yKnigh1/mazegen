@@ -30,6 +30,7 @@ def generate_maze(rows: int, cols: int, first_cell_pos: tuple[int, int]) -> list
         if len(not_visited_neighbours) == 0:
             current_cell = stack.pop()
         else:
+            # TODO: Make density
             next_cell = random.choice(not_visited_neighbours)
             stack.append(next_cell)
             current_cell, next_cell = remove_wall_between(current_cell, next_cell)
